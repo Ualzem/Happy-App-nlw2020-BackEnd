@@ -68,7 +68,7 @@ const data = {
             about,
             instructions,
             opening_hours,
-            open_on_weekends,
+            open_on_weekends: open_on_weekends == 'true',
             images,
 
 };
@@ -83,6 +83,8 @@ const schema = Yup.object().shape({
     open_on_weekends: Yup.boolean().required(),
     images: Yup.array(Yup.object().shape({path: Yup.string().required()}))
 });
+
+
 
 await schema.validate(data, { abortEarly: false,});
         
